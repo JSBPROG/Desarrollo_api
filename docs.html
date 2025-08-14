@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Técnica - Biblioteca API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentación Técnica: Biblioteca API</h1>
+
+        <h2>1. Introducción</h2>
+        <p>Este documento proporciona una descripción técnica detallada de la aplicación Biblioteca API. La aplicación está diseñada para gestionar una colección de libros, ofreciendo funcionalidades de creación, lectura, actualización y eliminación (CRUD) de registros de libros, con un sistema de autenticación de usuarios.</p>
+
+        <h2>2. Arquitectura del Sistema</h2>
+        <p>La aplicación sigue una arquitectura cliente-servidor, con una clara separación entre el backend (servidor) y el frontend (cliente).</p>
+
+        <h3>2.1. Arquitectura del Backend</h3>
+        <p>El backend está desarrollado con Flask y sigue una arquitectura en capas para promover la separación de responsabilidades y la mantenibilidad.</p>
+        <ul>
+            <li><b>Capa de Presentación (Rutas):</b> Define los endpoints de la API (<code>/books</code>, <code>/auth/login</code>, etc.) y maneja las solicitudes y respuestas HTTP.</li>
+            <li><b>Capa de Controladores:</b> Actúa como intermediario entre las rutas y los servicios, orquestando el flujo de datos.</li>
+            <li><b>Capa de Servicios (Lógica de Negocio):</b> Contiene la lógica de negocio principal de la aplicación.</li>
+            <li><b>Capa de Acceso a Datos (Modelos):</b> Define los modelos de la base de datos utilizando Flask-SQLAlchemy y gestiona las interacciones con la base de datos.</li>
+        </ul>
+
+        <h3>2.2. Arquitectura del Frontend</h3>
+        <p>El frontend es una aplicación de una sola página (SPA) desarrollada con Streamlit. Su estructura modular facilita la gestión del código:</p>
+        <ul>
+            <li><b>API Client:</b> Un módulo dedicado a realizar peticiones HTTP al backend.</li>
+            <li><b>Vistas:</b> Componentes que representan las diferentes "páginas" de la aplicación.</li>
+            <li><b>Servicios:</b> Contienen la lógica de la interfaz de usuario.</li>
+            <li><b>Componentes:</b> Elementos de UI reutilizables.</li>
+        </ul>
+
+        <h2>3. Tecnologías Utilizadas</h2>
+        <h3>Backend</h3>
+        <ul>
+            <li><b>Python:</b> Lenguaje de programación principal.</li>
+            <li><b>Flask:</b> Micro-framework para la construcción de la API RESTful.</li>
+            <li><b>Flask-SQLAlchemy:</b> ORM para la interacción con la base de datos.</li>
+            <li><b>Marshmallow:</b> Para la validación y serialización de datos.</li>
+            <li><b>Passlib:</b> Para el hash de contraseñas.</li>
+            <li><b>PyJWT:</b> Para la generación y validación de JSON Web Tokens.</li>
+        </ul>
+        <h3>Frontend</h3>
+        <ul>
+            <li><b>Python:</b> Lenguaje de programación principal.</li>
+            <li><b>Streamlit:</b> Framework para la creación de la interfaz de usuario web.</li>
+            <li><b>Requests:</b> Para realizar peticiones HTTP al backend.</li>
+            <li><b>Pandas:</b> Para la manipulación y visualización de datos.</li>
+        </ul>
+
+        <h2>4. Flujo de Autenticación</h2>
+        <p>La autenticación se basa en JSON Web Tokens (JWT). El flujo es el siguiente:</p>
+        <ol>
+            <li>El usuario se registra o inicia sesión con sus credenciales.</li>
+            <li>El backend verifica las credenciales y, si son correctas, genera un token JWT que se envía al cliente.</li>
+            <li>El cliente almacena este token y lo incluye en los encabezados de las solicitudes a las rutas protegidas.</li>
+            <li>El backend valida el token en cada solicitud a una ruta protegida antes de procesarla.</li>
+        </ol>
+
+        <h2>5. Instalación y Despliegue</h2>
+        <p>Para instalar y ejecutar la aplicación, siga los pasos detallados en el archivo <code>README.md</code> del proyecto.</p>
+
+    </div>
+</body>
+</html>

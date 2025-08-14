@@ -1,0 +1,14 @@
+# UI
+streamlit
+requests
+
+# Backend
+Flask
+Flask-SQLAlchemy
+PyJWT
+passlib
+python-dotenv
+psycopg2-binary
+gunicorn
+marshmallow
+bcrypt==4.0.1
