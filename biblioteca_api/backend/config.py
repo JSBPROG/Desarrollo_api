@@ -7,12 +7,10 @@ load_dotenv()
 
 class Config:
     """Configuración de la aplicación Flask.
-
-    Las variables se cargan desde el entorno, lo que permite flexibilidad
-    para distintos entornos (desarrollo, producción, etc.).
+    Se cargan desde las variables de entorno por seguridad
     """
-    SECRET_KEY = os.environ.get("SECRET_KEY", "clave-secreta-para-proteger-sesiones")
+    SECRET_KEY = os.environ.get("SECRET_KEY", "clave-secreta")
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "sqlite:///biblioteca.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "clave-secreta-para-jwt-muy-segura")
+    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "clave-secreta-para-jwt")
 
